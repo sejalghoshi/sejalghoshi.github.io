@@ -3,11 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sejal Ghoshi | QA Tester Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="Portfolio of Sejal Ghoshi - Software Testing, Manual Testing, API Testing, QA Engineer">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--primary:#00e5ff;
+--secondary:#7c4dff;
+--dark:#050816;
+--card:rgba(255,255,255,.06);
+--border:rgba(255,255,255,.1);
+--text:#ffffff;
+--muted:#cfd8dc;
+}
+
 *{
 margin:0;
 padding:0;
@@ -20,161 +33,349 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#050816;
+background:var(--dark);
 color:white;
 overflow-x:hidden;
 }
 
-/* Cursor */
+/* ===== Background ===== */
+
+#bgCanvas{
+position:fixed;
+inset:0;
+z-index:-3;
+}
+
+.gradient-blob{
+position:fixed;
+width:450px;
+height:450px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.25;
+pointer-events:none;
+z-index:-2;
+animation:float 10s ease-in-out infinite;
+}
+
+.blob1{
+background:#00e5ff;
+top:-100px;
+left:-100px;
+}
+
+.blob2{
+background:#7c4dff;
+right:-100px;
+bottom:-100px;
+animation-delay:3s;
+}
+
+@keyframes float{
+50%{
+transform:translateY(40px) translateX(20px);
+}
+}
+
+/* ===== Cursor ===== */
+
 .cursor{
-width:20px;
-height:20px;
-border:2px solid #00e5ff;
+width:18px;
+height:18px;
+border:2px solid var(--primary);
 border-radius:50%;
 position:fixed;
 pointer-events:none;
 transform:translate(-50%,-50%);
-transition:.1s;
 z-index:9999;
 }
 
 .cursor-glow{
-width:300px;
-height:300px;
-background:radial-gradient(circle,#00e5ff22,transparent 70%);
+width:250px;
+height:250px;
+background:radial-gradient(circle,var(--primary),transparent 70%);
+opacity:.12;
 position:fixed;
 pointer-events:none;
 transform:translate(-50%,-50%);
 z-index:-1;
 }
 
-/* Animated Background */
-#particles{
+/* ===== Navbar ===== */
+
+.navbar{
 position:fixed;
-width:100%;
-height:100%;
 top:0;
 left:0;
-z-index:-2;
-}
-
-nav{
+width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 10%;
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
-background:rgba(0,0,0,.2);
-z-index:100;
+padding:18px 8%;
+background:rgba(0,0,0,.25);
+backdrop-filter:blur(14px);
+z-index:1000;
+border-bottom:1px solid var(--border);
 }
 
 .logo{
-font-size:1.5rem;
+font-size:1.4rem;
 font-weight:700;
-color:#00e5ff;
+color:var(--primary);
 }
 
-nav ul{
+.nav-links{
 display:flex;
-gap:30px;
+gap:28px;
 list-style:none;
 }
 
-nav a{
-color:white;
+.nav-links a{
 text-decoration:none;
-transition:.3s;
+color:white;
+font-weight:500;
 }
 
-nav a:hover{
-color:#00e5ff;
+.nav-links a:hover{
+color:var(--primary);
 }
+
+.menu-toggle{
+display:none;
+font-size:30px;
+cursor:pointer;
+}
+
+/* ===== Hero ===== */
 
 .hero{
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+padding:120px 20px 50px;
 text-align:center;
-padding:20px;
 }
 
-.hero-content h1{
+.hero-content{
+max-width:900px;
+}
+
+.hero h4{
+color:var(--primary);
+font-size:1.2rem;
+margin-bottom:10px;
+}
+
+.hero h1{
 font-size:4rem;
+font-weight:800;
+line-height:1.1;
 }
 
-.hero-content span{
-color:#00e5ff;
+.hero h1 span{
+color:var(--primary);
 }
 
 .typing{
-font-size:1.5rem;
-margin-top:10px;
-color:#cfd8dc;
+font-size:1.4rem;
+color:var(--muted);
+margin-top:15px;
+height:35px;
 }
 
+.hero p{
+margin-top:20px;
+line-height:1.9;
+color:var(--muted);
+font-size:1.05rem;
+}
+
+.btn-group{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:13px 28px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.btn-primary{
+background:var(--primary);
+color:black;
+}
+
+.btn-outline{
+border:1px solid var(--primary);
+color:var(--primary);
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+/* ===== Sections ===== */
+
 section{
-padding:100px 10%;
+padding:100px 8%;
 }
 
 .section-title{
-font-size:2.5rem;
 text-align:center;
-margin-bottom:50px;
-color:#00e5ff;
+font-size:2.5rem;
+margin-bottom:60px;
+color:var(--primary);
+}
+
+.glass{
+background:var(--card);
+backdrop-filter:blur(15px);
+border:1px solid var(--border);
+border-radius:20px;
 }
 
 .about{
-max-width:900px;
-margin:auto;
+padding:40px;
 text-align:center;
-line-height:1.8;
-font-size:1.1rem;
+line-height:1.9;
+font-size:1.05rem;
 }
+
+/* ===== Stats ===== */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.stat-card{
+padding:30px;
+text-align:center;
+}
+
+.stat-number{
+font-size:2rem;
+font-weight:700;
+color:var(--primary);
+}
+
+/* ===== Skills ===== */
 
 .skills-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
 }
 
-.card{
-background:rgba(255,255,255,.05);
+.skill-card{
 padding:25px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-transition:.4s;
-border:1px solid rgba(255,255,255,.1);
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px #00e5ff44;
+.skill-card h3{
+margin-bottom:15px;
+}
+
+.progress{
+height:10px;
+background:#1d2335;
+border-radius:20px;
+overflow:hidden;
+margin-top:8px;
+}
+
+.progress-fill{
+height:100%;
+background:linear-gradient(90deg,var(--primary),#4dd0e1);
+}
+
+/* ===== Timeline ===== */
+
+.timeline{
+max-width:900px;
+margin:auto;
+}
+
+.timeline-item{
+padding:25px;
+margin-bottom:20px;
+position:relative;
+}
+
+.timeline-item h3{
+color:var(--primary);
+}
+
+/* ===== Projects ===== */
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
 }
 
 .project{
 padding:25px;
-background:rgba(255,255,255,.05);
-border-radius:15px;
-margin-bottom:25px;
 }
+
+.project h3{
+color:var(--primary);
+margin-bottom:10px;
+}
+
+/* ===== Certifications ===== */
+
+.cert-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.cert{
+padding:20px;
+text-align:center;
+}
+
+/* ===== Contact ===== */
 
 .contact{
 text-align:center;
 }
 
-.contact a{
-color:#00e5ff;
-text-decoration:none;
+.contact-links{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
-footer{
-text-align:center;
-padding:30px;
-border-top:1px solid rgba(255,255,255,.1);
+.contact-links a{
+padding:12px 20px;
+border-radius:12px;
+text-decoration:none;
+color:white;
+background:var(--card);
+border:1px solid var(--border);
 }
+
+/* ===== Footer ===== */
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid var(--border);
+}
+
+/* ===== Scroll Animation ===== */
 
 .fade{
 opacity:0;
@@ -187,29 +388,68 @@ opacity:1;
 transform:translateY(0);
 }
 
+/* ===== Mobile ===== */
+
 @media(max-width:768px){
-.hero-content h1{
-font-size:2.5rem;
+
+.cursor,
+.cursor-glow{
+display:none;
 }
-.typing{
-font-size:1.1rem;
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:75px;
+right:-100%;
+width:260px;
+background:#0c1325;
+flex-direction:column;
+padding:25px;
+transition:.4s;
+border-left:1px solid var(--border);
+}
+
+.nav-links.active{
+right:0;
+}
+
+.hero h1{
+font-size:2.6rem;
+}
+
+.hero p{
+font-size:.95rem;
+}
+
+.section-title{
+font-size:2rem;
 }
 }
 </style>
 </head>
-
 <body>
 
-<canvas id="particles"></canvas>
+<canvas id="bgCanvas"></canvas>
+
+<div class="gradient-blob blob1"></div>
+<div class="gradient-blob blob2"></div>
 
 <div class="cursor"></div>
 <div class="cursor-glow"></div>
 
-<nav>
+<nav class="navbar">
 <div class="logo">Sejal Ghoshi</div>
-<ul>
+
+<div class="menu-toggle" id="menuToggle">☰</div>
+
+<ul class="nav-links" id="navLinks">
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -217,101 +457,209 @@ font-size:1.1rem;
 
 <section class="hero">
 <div class="hero-content">
-<h1>Hello, I'm <span>Sejal Ghoshi</span></h1>
+
+<h4>Welcome to my Portfolio</h4>
+
+<h1>
+Sejal <span>Ghoshi</span>
+</h1>
+
 <div class="typing"></div>
+
+<p>
+Detail-oriented and analytical Software Testing enthusiast with experience in
+Manual Testing, API Testing, Bug Reporting, SQL Validation, and IT Support.
+Passionate about delivering high-quality software through structured testing,
+problem solving, and continuous learning.
+</p>
+
+<div class="btn-group">
+<a href="#" class="btn btn-primary">Download Resume</a>
+<a href="#contact" class="btn btn-outline">Contact Me</a>
+</div>
+
 </div>
 </section>
 
 <section id="about" class="fade">
 <h2 class="section-title">About Me</h2>
-<p class="about">
-Detail-oriented and analytical Software Testing enthusiast with experience in
-IT Support, Manual Testing, API Testing using Postman, Bug Tracking, and SQL
-Validation. Passionate about ensuring software quality through structured
-testing methodologies and continuous learning.
-</p>
+
+<div class="glass about">
+I am an aspiring QA Tester and Software Testing professional with hands-on experience in
+Manual Testing, Functional Testing, API Testing using Postman, and issue tracking.
+My background in IT Support helped me build strong troubleshooting and communication skills,
+allowing me to work effectively with users and technical teams.
+</div>
+
+<div class="stats">
+<div class="glass stat-card">
+<div class="stat-number">20+</div>
+<p>Test Cases Designed</p>
+</div>
+
+<div class="glass stat-card">
+<div class="stat-number">10+</div>
+<p>Bugs Reported</p>
+</div>
+
+<div class="glass stat-card">
+<div class="stat-number">15+</div>
+<p>Tickets Resolved Daily</p>
+</div>
+
+<div class="glass stat-card">
+<div class="stat-number">7.96</div>
+<p>CGPA</p>
+</div>
+</div>
 </section>
 
 <section id="skills" class="fade">
 <h2 class="section-title">Technical Skills</h2>
 
 <div class="skills-grid">
-<div class="card">
+
+<div class="glass skill-card">
 <h3>Manual Testing</h3>
-<p>Test Cases, Functional Testing, Regression Testing, UI Testing</p>
+<div class="progress"><div class="progress-fill" style="width:95%"></div></div>
 </div>
 
-<div class="card">
-<h3>API Testing</h3>
-<p>Postman Collections, REST APIs, Response Validation</p>
+<div class="glass skill-card">
+<h3>API Testing (Postman)</h3>
+<div class="progress"><div class="progress-fill" style="width:90%"></div></div>
 </div>
 
-<div class="card">
-<h3>Bug Tracking</h3>
-<p>JIRA, Bugzilla, Defect Lifecycle Management</p>
+<div class="glass skill-card">
+<h3>JIRA & Bug Tracking</h3>
+<div class="progress"><div class="progress-fill" style="width:85%"></div></div>
 </div>
 
-<div class="card">
-<h3>Database Testing</h3>
-<p>Basic SQL Queries and Data Validation</p>
+<div class="glass skill-card">
+<h3>SQL Validation</h3>
+<div class="progress"><div class="progress-fill" style="width:80%"></div></div>
 </div>
 
-<div class="card">
-<h3>Methodologies</h3>
-<p>SDLC, STLC, Agile, Scrum</p>
+<div class="glass skill-card">
+<h3>Agile & Scrum</h3>
+<div class="progress"><div class="progress-fill" style="width:85%"></div></div>
 </div>
 
-<div class="card">
+<div class="glass skill-card">
 <h3>IT Support</h3>
-<p>Issue Resolution, Ticketing Systems, User Support</p>
+<div class="progress"><div class="progress-fill" style="width:92%"></div></div>
 </div>
+
+</div>
+</section>
+
+<section id="experience" class="fade">
+<h2 class="section-title">Experience</h2>
+
+<div class="timeline">
+
+<div class="glass timeline-item">
+<h3>IT Support Executive</h3>
+<p><strong>MBG Card | Feb 2026 – Jun 2026</strong></p>
+<br>
+<ul>
+<li>Resolved 15+ technical tickets daily.</li>
+<li>Validated software installations before deployment.</li>
+<li>Reproduced reported issues and verified resolutions.</li>
+<li>Maintained Excel-based issue tracking reports.</li>
+</ul>
+</div>
+
 </div>
 </section>
 
 <section id="projects" class="fade">
 <h2 class="section-title">Projects</h2>
 
-<div class="project">
-<h3>E-Commerce Manual Testing</h3>
+<div class="project-grid">
+
+<div class="glass project">
+<h3>E-Commerce Web Application Testing</h3>
 <p>
-Created 20+ test cases covering Login, Cart, Checkout, Search,
-and reported defects using JIRA.
+Designed and executed 20+ test cases covering login, cart,
+checkout, search, UI and negative scenarios.
 </p>
 </div>
 
-<div class="project">
-<h3>API Testing with Postman</h3>
+<div class="glass project">
+<h3>API Testing Using Postman</h3>
 <p>
-Validated REST APIs using GET/POST requests, status codes,
-response times, and JSON validation.
+Created collections and tested REST APIs using GET and POST requests,
+validating status codes, response times and JSON responses.
 </p>
+</div>
+
 </div>
 </section>
 
-<section id="contact" class="fade">
+<section class="fade">
+<h2 class="section-title">Education</h2>
+
+<div class="glass timeline-item">
+<h3>B.Tech - IoT & Cyber Security with Blockchain</h3>
+<p>Baderia Global Institute of Engineering & Management</p>
+<p>CGPA: 7.96</p>
+<p>Graduating 2026</p>
+</div>
+</section>
+
+<section class="fade">
+<h2 class="section-title">Certifications</h2>
+
+<div class="cert-grid">
+
+<div class="glass cert">
+Ericsson Training Certificate
+</div>
+
+<div class="glass cert">
+Software Testing (Manual Testing)
+</div>
+
+<div class="glass cert">
+API Testing with Postman
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="contact fade">
 <h2 class="section-title">Contact</h2>
 
-<p>Email: sejalghoshi02@gmail.com</p>
-<p>Phone: 7999037582</p>
-<p>
-GitHub:
-<a href="https://github.com/sejalghoshi" target="_blank">
-github.com/sejalghoshi
-</a>
-</p>
+<p>Let's connect and discuss opportunities in QA & Software Testing.</p>
+
+<div class="contact-links">
+<a href="mailto:sejalghoshi02@gmail.com">Email</a>
+<a href="https://github.com/sejalghoshi" target="_blank">GitHub</a>
+<a href="#">LinkedIn</a>
+</div>
 </section>
 
 <footer>
-© 2026 Sejal Ghoshi | QA Tester Portfolio
+© 2026 Sejal Ghoshi • QA Tester Portfolio
 </footer>
 
 <script>
 
-/* Cursor Animation */
+/* Mobile Menu */
+
+const menuToggle=document.getElementById("menuToggle");
+const navLinks=document.getElementById("navLinks");
+
+menuToggle.addEventListener("click",()=>{
+navLinks.classList.toggle("active");
+});
+
+/* Cursor */
+
 const cursor=document.querySelector(".cursor");
 const glow=document.querySelector(".cursor-glow");
 
-document.addEventListener("mousemove",(e)=>{
+document.addEventListener("mousemove",e=>{
 cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 
@@ -319,42 +667,45 @@ glow.style.left=e.clientX+"px";
 glow.style.top=e.clientY+"px";
 });
 
-/* Typing Animation */
+/* Typing */
+
 const roles=[
-"Software Tester",
-"Manual QA Engineer",
-"API Testing Enthusiast",
+"Manual QA Tester",
+"Software Testing Enthusiast",
+"API Testing Learner",
 "IT Support Professional"
 ];
 
-let i=0,j=0,current="",isDeleting=false;
+let roleIndex=0;
+let charIndex=0;
+let deleting=false;
 
-function type(){
-current=roles[i];
+function typeEffect(){
 
-if(!isDeleting){
-document.querySelector(".typing").textContent=
-current.substring(0,j++);
-if(j>current.length){
-isDeleting=true;
-setTimeout(type,1200);
+const current=roles[roleIndex];
+const el=document.querySelector(".typing");
+
+if(!deleting){
+el.textContent=current.substring(0,charIndex++);
+if(charIndex>current.length){
+deleting=true;
+setTimeout(typeEffect,1200);
 return;
 }
-}
-else{
-document.querySelector(".typing").textContent=
-current.substring(0,j--);
-if(j===0){
-isDeleting=false;
-i=(i+1)%roles.length;
+}else{
+el.textContent=current.substring(0,charIndex--);
+if(charIndex===0){
+deleting=false;
+roleIndex=(roleIndex+1)%roles.length;
 }
 }
 
-setTimeout(type,isDeleting?50:100);
+setTimeout(typeEffect,deleting?50:100);
 }
-type();
+typeEffect();
 
-/* Scroll Reveal */
+/* Reveal */
+
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
@@ -367,22 +718,28 @@ document.querySelectorAll(".fade").forEach(el=>{
 observer.observe(el);
 });
 
-/* Particles Background */
-const canvas=document.getElementById("particles");
+/* Particle Background */
+
+const canvas=document.getElementById("bgCanvas");
 const ctx=canvas.getContext("2d");
 
+function resize(){
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
+}
+resize();
 
-let particles=[];
+window.addEventListener("resize",resize);
 
-for(let i=0;i<120;i++){
+const particles=[];
+
+for(let i=0;i<100;i++){
 particles.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-r:Math.random()*3,
-dx:(Math.random()-0.5)*1,
-dy:(Math.random()-0.5)*1
+r:Math.random()*2+1,
+dx:(Math.random()-.5)*0.8,
+dy:(Math.random()-.5)*0.8
 });
 }
 
@@ -390,6 +747,7 @@ function animate(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
 particles.forEach(p=>{
+
 ctx.beginPath();
 ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
 ctx.fillStyle="#00e5ff";
@@ -407,10 +765,6 @@ requestAnimationFrame(animate);
 
 animate();
 
-window.addEventListener("resize",()=>{
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-});
 </script>
 
 </body>
