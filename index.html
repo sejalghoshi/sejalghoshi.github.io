@@ -1,1 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sejal Ghoshi | QA Tester Portfolio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* Cursor */
+.cursor{
+width:20px;
+height:20px;
+border:2px solid #00e5ff;
+border-radius:50%;
+position:fixed;
+pointer-events:none;
+transform:translate(-50%,-50%);
+transition:.1s;
+z-index:9999;
+}
+
+.cursor-glow{
+width:300px;
+height:300px;
+background:radial-gradient(circle,#00e5ff22,transparent 70%);
+position:fixed;
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:-1;
+}
+
+/* Animated Background */
+#particles{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-2;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+background:rgba(0,0,0,.2);
+z-index:100;
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:700;
+color:#00e5ff;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00e5ff;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content h1{
+font-size:4rem;
+}
+
+.hero-content span{
+color:#00e5ff;
+}
+
+.typing{
+font-size:1.5rem;
+margin-top:10px;
+color:#cfd8dc;
+}
+
+section{
+padding:100px 10%;
+}
+
+.section-title{
+font-size:2.5rem;
+text-align:center;
+margin-bottom:50px;
+color:#00e5ff;
+}
+
+.about{
+max-width:900px;
+margin:auto;
+text-align:center;
+line-height:1.8;
+font-size:1.1rem;
+}
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+transition:.4s;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px #00e5ff44;
+}
+
+.project{
+padding:25px;
+background:rgba(255,255,255,.05);
+border-radius:15px;
+margin-bottom:25px;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+color:#00e5ff;
+text-decoration:none;
+}
+
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+@media(max-width:768px){
+.hero-content h1{
+font-size:2.5rem;
+}
+.typing{
+font-size:1.1rem;
+}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="cursor"></div>
+<div class="cursor-glow"></div>
+
+<nav>
+<div class="logo">Sejal Ghoshi</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Hello, I'm <span>Sejal Ghoshi</span></h1>
+<div class="typing"></div>
+</div>
+</section>
+
+<section id="about" class="fade">
+<h2 class="section-title">About Me</h2>
+<p class="about">
+Detail-oriented and analytical Software Testing enthusiast with experience in
+IT Support, Manual Testing, API Testing using Postman, Bug Tracking, and SQL
+Validation. Passionate about ensuring software quality through structured
+testing methodologies and continuous learning.
+</p>
+</section>
+
+<section id="skills" class="fade">
+<h2 class="section-title">Technical Skills</h2>
+
+<div class="skills-grid">
+<div class="card">
+<h3>Manual Testing</h3>
+<p>Test Cases, Functional Testing, Regression Testing, UI Testing</p>
+</div>
+
+<div class="card">
+<h3>API Testing</h3>
+<p>Postman Collections, REST APIs, Response Validation</p>
+</div>
+
+<div class="card">
+<h3>Bug Tracking</h3>
+<p>JIRA, Bugzilla, Defect Lifecycle Management</p>
+</div>
+
+<div class="card">
+<h3>Database Testing</h3>
+<p>Basic SQL Queries and Data Validation</p>
+</div>
+
+<div class="card">
+<h3>Methodologies</h3>
+<p>SDLC, STLC, Agile, Scrum</p>
+</div>
+
+<div class="card">
+<h3>IT Support</h3>
+<p>Issue Resolution, Ticketing Systems, User Support</p>
+</div>
+</div>
+</section>
+
+<section id="projects" class="fade">
+<h2 class="section-title">Projects</h2>
+
+<div class="project">
+<h3>E-Commerce Manual Testing</h3>
+<p>
+Created 20+ test cases covering Login, Cart, Checkout, Search,
+and reported defects using JIRA.
+</p>
+</div>
+
+<div class="project">
+<h3>API Testing with Postman</h3>
+<p>
+Validated REST APIs using GET/POST requests, status codes,
+response times, and JSON validation.
+</p>
+</div>
+</section>
+
+<section id="contact" class="fade">
+<h2 class="section-title">Contact</h2>
+
+<p>Email: sejalghoshi02@gmail.com</p>
+<p>Phone: 7999037582</p>
+<p>
+GitHub:
+<a href="https://github.com/sejalghoshi" target="_blank">
+github.com/sejalghoshi
+</a>
+</p>
+</section>
+
+<footer>
+© 2026 Sejal Ghoshi | QA Tester Portfolio
+</footer>
+
+<script>
+
+/* Cursor Animation */
+const cursor=document.querySelector(".cursor");
+const glow=document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
+});
+
+/* Typing Animation */
+const roles=[
+"Software Tester",
+"Manual QA Engineer",
+"API Testing Enthusiast",
+"IT Support Professional"
+];
+
+let i=0,j=0,current="",isDeleting=false;
+
+function type(){
+current=roles[i];
+
+if(!isDeleting){
+document.querySelector(".typing").textContent=
+current.substring(0,j++);
+if(j>current.length){
+isDeleting=true;
+setTimeout(type,1200);
+return;
+}
+}
+else{
+document.querySelector(".typing").textContent=
+current.substring(0,j--);
+if(j===0){
+isDeleting=false;
+i=(i+1)%roles.length;
+}
+}
+
+setTimeout(type,isDeleting?50:100);
+}
+type();
+
+/* Scroll Reveal */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el);
+});
+
+/* Particles Background */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<120;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*3,
+dx:(Math.random()-0.5)*1,
+dy:(Math.random()-0.5)*1
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#00e5ff";
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize",()=>{
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+});
+</script>
+
+</body>
+</html>
